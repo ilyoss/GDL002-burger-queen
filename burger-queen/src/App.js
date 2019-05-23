@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './components/Header';
 import Content from './components/Content';
+import Header from './components/Header';
 import './styles/styles.scss';
 
 class ServeItUp extends React.Component {
@@ -10,6 +10,12 @@ class ServeItUp extends React.Component {
 
   handleAddOrderItem = (item) => {
     this.setState((prevState) => ({ order: prevState.order.concat([item]) }));
+  }
+
+  handleDeleteOption = (optionToRemove) => {
+    this.setState((prevState) => ({
+      order: prevState.order.filter((option) => optionToRemove !== option)
+    }));
   }
 
   // Lifecycle methods
@@ -34,12 +40,6 @@ class ServeItUp extends React.Component {
   }
   componentWillUnmount(){
     console.log('componentWillunmount');
-  }
-
-  handleDeleteOption = (optionToRemove) => {
-    this.setState((prevState) => ({
-      order: prevState.options.filter((option) => optionToRemove !== option)
-    }));
   }
 
   render() {

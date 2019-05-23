@@ -1,21 +1,29 @@
 import React from 'react';
 import Breakfast from './data/breakfast.json';
-import Lunch from './data/lunch.json';
 
 class Menu extends React.Component{
   constructor(props){
     super(props);
+    this.handleAddOrderItem = this.handleAddOrderItem.bind(this);
     this.handleToggleVisibility = this.handleToggleVisibility.bind(this);
     this.state = {
       visibility: true
     }
   }
+
   handleToggleVisibility(){
     this.setState((prevState) => {
       return {
         visibility: !prevState.visibility
       }
     })
+  }
+
+  handleAddOrderItem = (e) => {
+    e.preventDefault();
+    const item = e.target.name;
+    const error = this.props.handleAddOrderItem(item);
+    this.setState(() => ({ error }));
   }
 
   render(){
@@ -29,8 +37,15 @@ class Menu extends React.Component{
         <div className="menu__container">
 
           {this.state.visibility &&
-            (Breakfast.map((option) => (
-              <button className="button">{option.item}: ${option.price}</button>))
+            (Breakfast.map((option, index) => (
+              <button
+                className="button"
+                key={option.id}
+                name={option.item}
+                onClick={this.handleAddOrderItem}
+              >
+                {option.item}: ${option.price}
+              </button>))
             )
           }
 

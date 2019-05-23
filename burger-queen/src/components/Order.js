@@ -8,6 +8,7 @@ const Order = (props) => (
     </div>
     <div className="order__elements">
       {props.order.length === 0 && <p className="order__message">You have no items in your order yet</p>}
+      <p></p>
       {
         props.order.map((option, index) => (
           <OrderElement
