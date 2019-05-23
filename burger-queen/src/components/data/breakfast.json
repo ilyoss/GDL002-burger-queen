@@ -1,0 +1,20 @@
+[{
+    "item":"Café americano",
+    "price": 5,
+    "id":"plain-coffee"
+},
+{
+    "item":"Café con leche",
+    "price": 7,
+    "id":"milk-coffee"
+},
+{
+    "item":"Sandwich de jamón y queso",
+    "price": 10,
+    "id":"hamcheese-sand"
+},
+{
+    "item":"Jugo de frutas natural",
+    "price": 7,
+    "id": "nat-fruitjuice"
+}]

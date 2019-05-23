@@ -1,0 +1,50 @@
+//button
+.button {
+  background: $purple;
+  border: none;
+  border-bottom: .3rem solid darken($purple, 10%);
+  color: white;
+  font-size: $m-size;
+  font-weight: 500;
+  padding: $s-size;
+  margin: $m-size;
+}
+.tab {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab--content {
+  
+}
+.button--tab {
+  border-right: .3rem solid darken($purple, 10%);
+  color: $off-white;
+  flex: 1;
+  margin: 0;
+}
+
+.tab .button--tab:focus {
+  background: lighten($purple, 10%);
+  color: white;
+  outline: none;
+}
+//BEM
+.button--link {
+  background: none;
+  border: none;
+  color: $off-white;
+  padding: 0;
+}
+.button--items {
+  background: darken($light-blue, 7%);
+  border: none;
+  border-bottom: 1px solid lighten($light-blue, 10%);
+  display: flex;
+  justify-content: space-between;
+  margin: $m-size 0;
+  text-align: center;
+}

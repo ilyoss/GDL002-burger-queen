@@ -1,0 +1,15 @@
+.content {
+  display: flex;
+  justify-content: space-between;
+  margin: $m-size;
+  padding: 0 $m-size;
+}
+
+.content__module {
+  align-items: center;
+  background: $light-blue;
+  flex: 1;
+  justify-content: center;
+  margin: 0 $m-size;
+  text-align: center;
+}
