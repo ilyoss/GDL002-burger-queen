@@ -8,7 +8,6 @@ const Order = (props) => (
     </div>
     <div className="order__elements">
       {props.order.length === 0 && <p className="order__message">You have no items in your order yet</p>}
-      <p></p>
       {
         props.order.map((option, index) => (
           <OrderElement
@@ -26,3 +25,5 @@ const Order = (props) => (
 export default Order;
 
 // {props.order.length === 0 && <p className="">You have no items in your order yet</p>}
+// <p>Customer name: </p>
+// <input className="order-customer" type="text" name="customer" ></input>

@@ -6,6 +6,7 @@ const Content = (props) => (
   <div className="content">
     <Menu
       handleAddOrderItem={props.handleAddOrderItem}
+      visibility={props.visibility}
     />
     <Order
       order={props.order}

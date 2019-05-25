@@ -1,11 +1,12 @@
 import React from 'react';
+import Tab from './Tab'
 import Breakfast from './data/breakfast.json';
 
 class Menu extends React.Component{
   constructor(props){
     super(props);
-    this.handleAddOrderItem = this.handleAddOrderItem.bind(this);
     this.handleToggleVisibility = this.handleToggleVisibility.bind(this);
+    this.handleAddOrderItem = this.handleAddOrderItem.bind(this);
     this.state = {
       visibility: true
     }
@@ -29,10 +30,9 @@ class Menu extends React.Component{
   render(){
     return (
       <div className="content__module">
-        <div className="tab">
-          <button className="button button--tab" autoFocus={true} onClick={this.handleToggleVisibility}>Breakfast</button>
-          <button className="button button--tab" onClick={this.handleToggleVisibility}>Lunch</button>
-        </div>
+        <Tab
+          handleToggleVisibility={this.handleToggleVisibility}
+        />
 
         <div className="menu__container">
 

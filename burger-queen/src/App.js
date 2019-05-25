@@ -8,16 +8,6 @@ class ServeItUp extends React.Component {
     order: []
   };
 
-  handleAddOrderItem = (item) => {
-    this.setState((prevState) => ({ order: prevState.order.concat([item]) }));
-  }
-
-  handleDeleteOption = (optionToRemove) => {
-    this.setState((prevState) => ({
-      order: prevState.order.filter((option) => optionToRemove !== option)
-    }));
-  }
-
   // Lifecycle methods
   componentDidMount(){
     try {
@@ -40,6 +30,17 @@ class ServeItUp extends React.Component {
   }
   componentWillUnmount(){
     console.log('componentWillunmount');
+  }
+
+  handleAddOrderItem = (item) => {
+    this.setState((prevState) => ({ order: prevState.order.concat([item]) }));
+    console.log(this.state.order);
+  }
+
+  handleDeleteOption = (optionToRemove) => {
+    this.setState((prevState) => ({
+      order: prevState.order.filter((option) => optionToRemove !== option)
+    }));
   }
 
   render() {

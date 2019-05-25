@@ -24,6 +24,11 @@
   margin: 0;
 }
 
+.order-customer {
+  font-size: $m-size;
+  margin: $s-size;
+}
+
 .order__elements {
   color: lighten($light-blue, 20%);
   border-bottom: 1px solid lighten($light-blue, 10%);
