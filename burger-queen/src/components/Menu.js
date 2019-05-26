@@ -22,8 +22,9 @@ class Menu extends React.Component{
 
   handleAddOrderItem = (e) => {
     e.preventDefault();
-    const item = e.target.name;
-    const error = this.props.handleAddOrderItem(item);
+    const item = e.target.dataset.item;
+    const price = e.target.dataset.price;
+    const error = this.props.handleAddOrderItem(item, price);
     this.setState(() => ({ error }));
   }
 
@@ -41,7 +42,9 @@ class Menu extends React.Component{
               <button
                 className="button"
                 key={option.id}
-                name={option.item}
+                data-counter={1}
+                data-item={option.item}
+                data-price={option.price}
                 onClick={this.handleAddOrderItem}
               >
                 {option.item}: ${option.price}

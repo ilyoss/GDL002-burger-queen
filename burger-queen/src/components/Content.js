@@ -11,6 +11,7 @@ const Content = (props) => (
     <Order
       order={props.order}
       handleDeleteOption={props.handleDeleteOption}
+      handleElementCounter={props.handleElementCounter}
     />
   </div>
 );

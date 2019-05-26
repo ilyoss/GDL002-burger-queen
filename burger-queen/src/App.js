@@ -32,9 +32,8 @@ class ServeItUp extends React.Component {
     console.log('componentWillunmount');
   }
 
-  handleAddOrderItem = (item) => {
-    this.setState((prevState) => ({ order: prevState.order.concat([item]) }));
-    console.log(this.state.order);
+  handleAddOrderItem = (item, price) => {
+    this.setState((prevState) => ({ order: prevState.order.concat([[item, price]]) }));
   }
 
   handleDeleteOption = (optionToRemove) => {
@@ -51,6 +50,7 @@ class ServeItUp extends React.Component {
           order={this.state.order}
           handleAddOrderItem={this.handleAddOrderItem}
           handleDeleteOption={this.handleDeleteOption}
+          handleElementCounter={this.handleElementCounter}
         />
       </div>
     );

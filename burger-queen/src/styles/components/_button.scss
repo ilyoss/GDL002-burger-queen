@@ -18,7 +18,7 @@
 }
 
 .tab--content {
-  
+
 }
 .button--tab {
   border-right: .3rem solid darken($purple, 10%);
@@ -47,4 +47,9 @@
   justify-content: space-between;
   margin: $m-size 0;
   text-align: center;
+}
+
+.button--send {
+  display: flex;
+  margin: $s-size;
 }

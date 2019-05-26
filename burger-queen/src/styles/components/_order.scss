@@ -43,7 +43,24 @@
 
 .order-text {
   color: white;
+  display: flex;
   font-weight: 500;
-  font-size: $m-size;
+  font-size: auto $m-size;
+  margin: auto;
   word-break: break-all;
+}
+
+.order-price {
+  color: white;
+  margin: auto $xl-size;
+}
+
+.order-total {
+  color: white;
+  margin: auto;
+}
+
+.order-bottom {
+  display: flex;
+  flex-direction: row;
 }

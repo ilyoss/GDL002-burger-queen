@@ -12,13 +12,16 @@ const Order = (props) => (
         props.order.map((option, index) => (
           <OrderElement
             key={index}
-            optionText={option}
+            option={option}
             handleDeleteOption={props.handleDeleteOption}
           />
         ))
       }
     </div>
-    <button className="button">Send order to kitchen</button>
+    <div className="order-bottom">
+      <button className="button button--send">Send order to kitchen</button>
+      <h3 className="order-total">Total: </h3>
+    </div>
   </div>
 )
 
