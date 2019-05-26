@@ -10,6 +10,7 @@ const Content = (props) => (
     />
     <Order
       order={props.order}
+      total={props.total}
       handleDeleteOption={props.handleDeleteOption}
       handleElementCounter={props.handleElementCounter}
     />

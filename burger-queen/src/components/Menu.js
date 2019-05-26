@@ -1,6 +1,7 @@
 import React from 'react';
 import Tab from './Tab'
 import Breakfast from './data/breakfast.json';
+import Lunch from './data/lunch.json';
 
 class Menu extends React.Component{
   constructor(props){
@@ -37,7 +38,7 @@ class Menu extends React.Component{
 
         <div className="menu__container">
 
-          {this.state.visibility &&
+          {this.state.visibility ?
             (Breakfast.map((option, index) => (
               <button
                 className="button"
@@ -49,9 +50,20 @@ class Menu extends React.Component{
               >
                 {option.item}: ${option.price}
               </button>))
+            ) : (
+              Lunch.map((option, index) => (
+                <button
+                  className="button"
+                  key={option.id}
+                  data-counter={1}
+                  data-item={option.item}
+                  data-price={option.price}
+                  onClick={this.handleAddOrderItem}
+                >
+                  {option.item}: ${option.price}
+                </button>))
             )
           }
-
         </div>
 
       </div>
