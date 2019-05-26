@@ -1,0 +1,40 @@
+[{
+    "item": "Hamburguesa simple",
+    "price": 10,
+    "id":"plain-hamb"
+    },
+    {
+    "item": "Hamburguesa doble",
+    "price": 15,
+    "id":"double-ham"
+    },
+    {
+    "item": "Papas fritas",
+    "price": 5,
+    "id":"fr-fries"
+    },
+    {
+    "item": "Aros de cebolla",
+    "price": 5,
+    "id":"oni-rings"
+    },
+    {
+    "item": "Agua 500ml",
+    "price": 5,
+    "id":"water-500"
+    },
+    {
+    "item": "Agua 750ml",
+    "price": 7,
+    "id":"water-750"
+    },
+    {
+    "item": "Bebida/gaseosa 500ml",
+    "price": 7,
+    "id":"soda-500"
+    },
+    {
+    "item": "Bebida/gaseosa 750ml",
+    "price": 10,
+    "id":"soda-750"
+    }]
