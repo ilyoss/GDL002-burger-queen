@@ -32,9 +32,7 @@ class Menu extends React.Component{
   render(){
     return (
       <div className="content__module">
-        <Tab
-          handleToggleVisibility={this.handleToggleVisibility}
-        />
+        <Tab handleToggleVisibility={this.handleToggleVisibility} />
 
         <div className="menu__container">
 
