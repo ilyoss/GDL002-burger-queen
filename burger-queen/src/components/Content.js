@@ -13,6 +13,7 @@ const Content = (props) => (
       total={props.total}
       handleDeleteOption={props.handleDeleteOption}
       handleElementCounter={props.handleElementCounter}
+      handleSendOrder={props.handleSendOrder}
     />
   </div>
 );

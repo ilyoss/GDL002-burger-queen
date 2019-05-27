@@ -2,11 +2,18 @@ import React from 'react';
 import Content from './components/Content';
 import Header from './components/Header';
 import './styles/styles.scss';
+import firebase from 'firebase';
+import {DB_CONFIG} from './Config';
 
 class ServeItUp extends React.Component {
+  constructor(){
+    super();
+    this.firebase = firebase.initializeApp(DB_CONFIG);
+  }
   state = {
     order: [],
-    total: 0
+    total: 0,
+    customer: ''
   };
 
   // Lifecycle methods
@@ -32,6 +39,7 @@ class ServeItUp extends React.Component {
       localStorage.setItem('total', total);
     }
   }
+
   componentWillUnmount(){
     console.log('componentWillunmount');
   }
@@ -39,7 +47,9 @@ class ServeItUp extends React.Component {
   handleAddOrderItem = (id, price) => {
     this.setState((prevState) => ({
       order: prevState.order.concat([{item: id, price: price}]),
-      total: (prevState.total + parseInt(price)) }));
+      total: (prevState.total + parseInt(price))
+    }));
+    
     // const arr = this.state.order;
     // const unique = arr.map(e => e['item'])
     //   // store the keys of the unique objects
@@ -51,16 +61,30 @@ class ServeItUp extends React.Component {
     // console.log(unique);
   }
 
-  // handleRepetitiveItems = (item) => {
-  //   const unique = this.state.order.map(e => e[item]);
-  //   console.log(unique);
-  // }
-
   handleDeleteOption = (optionToRemove) => {
     this.setState((prevState) => ({
       order: prevState.order.filter((option) => optionToRemove !== option),
       total: (prevState.total - parseInt(optionToRemove.price))
     }));
+  }
+
+  handleSendOrder = () => {
+    let database = firebase.database();
+    let order = this.state.order;
+    let total = this.state.total;
+    let customer = this.state.customer;
+    console.log(order);
+    console.log(customer);
+    writeUserData(customer, order, total);
+
+    function writeUserData(customer, order, total) {
+      firebase.database().ref('orders/' + customer).set({
+        order: order,
+        total: total
+      });
+    }
+
+
   }
 
   render() {
@@ -73,6 +97,7 @@ class ServeItUp extends React.Component {
           handleAddOrderItem={this.handleAddOrderItem}
           handleDeleteOption={this.handleDeleteOption}
           handleElementCounter={this.handleElementCounter}
+          handleSendOrder={this.handleSendOrder}
         />
       </div>
     );

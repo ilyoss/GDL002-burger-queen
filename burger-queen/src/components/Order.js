@@ -13,6 +13,7 @@ const Order = (props) => (
     />
     <OrderCheckout
       total={props.total}
+      handleSendOrder={props.handleSendOrder}
     />
   </div>
 )
