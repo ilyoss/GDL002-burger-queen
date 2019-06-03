@@ -1,0 +1,34 @@
+.kitchen {
+  background-color: $light-blue;
+  height: 60vh;
+  text-align: left;
+  padding: $s-size;
+}
+
+.kitchen__order {
+  background-color: lighten($purple, 20%);
+  display: flex;
+  flex-direction: column;
+  margin: $s-size;
+  width: 25vw;
+}
+
+.order__titles {
+  border-bottom: 2px solid $purple;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  font-size: 2rem;
+  margin: $s-size;
+  padding-bottom: $s-size;
+}
+
+.order__list {
+  border-bottom: 1px solid $purple;
+  margin: $s-size;
+}
+
+.order__ready {
+  font-size: $m-size;
+  padding: $s-size;
+}
