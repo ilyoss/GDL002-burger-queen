@@ -1,7 +1,7 @@
 import React from 'react';
 import Tab from './Tab'
-import Breakfast from './data/breakfast.json';
-import Lunch from './data/lunch.json';
+import Breakfast from '../data/breakfast.json';
+import Lunch from '../data/lunch.json';
 
 class Menu extends React.Component{
   constructor(props){

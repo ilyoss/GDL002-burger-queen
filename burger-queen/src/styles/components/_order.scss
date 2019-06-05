@@ -7,7 +7,7 @@
 // }
 //Empty message - Widget element selector
 .order__message {
-  color: $off-white;
+  color: lighten($button, 10%);
   margin: 0;
   padding: $l-size;
   text-align: center;
@@ -15,7 +15,7 @@
 }
 // Widget header
 .order-header {
-  color: $off-white;
+  color: lighten($button, 10%);
   display: flex;
   padding: $m-size;
   border-bottom: 1px solid lighten($light-blue, 10%);

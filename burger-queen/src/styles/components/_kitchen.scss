@@ -1,34 +1,42 @@
 .kitchen {
+  align-items: flex-start;
   background-color: $light-blue;
+  display: flex;
   height: 60vh;
   text-align: left;
   padding: $s-size;
 }
 
 .kitchen__order {
-  background-color: lighten($purple, 20%);
+  background-color: #F5F5F5;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   margin: $s-size;
-  width: 25vw;
+  width: 20vw;
 }
 
 .order__titles {
-  border-bottom: 2px solid $purple;
+  border-bottom: 2px solid $light-blue;
   display: flex;
   flex-direction: row;
-  flex: 1;
   font-size: 2rem;
   margin: $s-size;
   padding-bottom: $s-size;
 }
 
 .order__list {
-  border-bottom: 1px solid $purple;
+  border-bottom: 1px solid #2F4F4F;
   margin: $s-size;
 }
 
 .order__ready {
+  background: #8FBC8F;
+  border: none;
+  border-bottom: .3rem solid #2F4F4F;
+  color: black;
   font-size: $m-size;
+  font-weight: 500;
   padding: $s-size;
+  margin: $m-size;;
 }

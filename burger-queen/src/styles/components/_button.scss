@@ -1,9 +1,9 @@
 //button
 .button {
-  background: $purple;
+  background: $button;
   border: none;
-  border-bottom: .3rem solid darken($purple, 10%);
-  color: white;
+  border-bottom: .3rem solid $button-border;
+  color: $button-text;
   font-size: $m-size;
   font-weight: 500;
   padding: $s-size;
@@ -17,19 +17,16 @@
   justify-content: center;
 }
 
-.tab--content {
-
-}
 .button--tab {
-  border-right: .3rem solid darken($purple, 10%);
-  color: $off-white;
+  border-right: .3rem solid $button-border;
+  color: $button-text;
   flex: 1;
   margin: 0;
 }
 
 .tab .button--tab:focus {
-  background: lighten($purple, 10%);
-  color: white;
+  background: darken($button, 20%);
+  color: $button-text;
   outline: none;
 }
 //BEM

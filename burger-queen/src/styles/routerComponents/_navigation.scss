@@ -4,7 +4,7 @@
 }
 
 .navigation a {
-  color: $off-white;
+  color: lighten($button, 10%);
   font-size: 2rem;
   margin: $l-size;
   text-decoration: none;

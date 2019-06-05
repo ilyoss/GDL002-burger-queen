@@ -1,44 +1,42 @@
 import React from 'react';
 import Navigation from './Navigation';
-import KitchenOrders from '../components/KitchenOrders';
+import KitchenOrders from '../components/kitchen/KitchenOrders';
 import Header from '../components/Header';
 import '../styles/styles.scss';
-import firebase from 'firebase';
+import firebase from '../config/Config.js';
 
 class Kitchen extends React.Component {
-  constructor(){
-    super();
-  }
   state = {
-    order: []
-  };
+    clients: [],
+    orders: []
+  }
 
-  // Lifecycle methods
   componentDidMount(){
-    try {
-      const json = localStorage.getItem('order');
-      const total = JSON.parse(localStorage.getItem('total'));
-      const order = JSON.parse(json);
-
-      if(order) {
-        this.setState(() => ({ order, total }));
-      }
-    } catch (e) {
-      // Do nothing at all if JSON data is invalid
-    }
+    this.snapshotToArray();
   }
 
-  componentDidUpdate(prevProps, prevState){
-    if(prevState.order.length !== this.state.order.length) {
-      const json = JSON.stringify(this.state.order);
-      const total = JSON.stringify(this.state.total)
-      localStorage.setItem('order', json);
-      localStorage.setItem('total', total);
-    }
+  snapshotToArray = () => {
+    let clients = [];
+    let orders = [];
+    firebase.database().ref('orders/').once('value')
+    .then(function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        let item = childSnapshot.val();
+        let customer = childSnapshot.key;
+        let order = item.order;
+        clients.push(customer);
+        orders.push(order);
+      });
+    })
+    .then(() => this.handleStateArrays(orders, clients));
+
   }
 
-  componentWillUnmount(){
-    // console.log('componentWillunmount');
+  handleStateArrays = (orders, clients) => {
+    this.setState((prevState) => ({
+      orders,
+      clients
+    }));
   }
 
   render() {
@@ -47,7 +45,8 @@ class Kitchen extends React.Component {
         <Navigation className="navigation" />
         <Header />
         <KitchenOrders
-          order={this.state.order}
+          orders={this.state.orders}
+          clients={this.state.clients}
         />
       </div>
     );

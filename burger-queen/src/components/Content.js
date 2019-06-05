@@ -1,6 +1,6 @@
 import React from 'react';
-import Menu from './Menu';
-import Order from './Order';
+import Menu from './waiter/Menu';
+import Order from './waiter/Order';
 
 const Content = (props) => (
   <div className="content">

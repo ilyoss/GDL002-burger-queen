@@ -3,14 +3,9 @@ import Navigation from './Navigation';
 import Content from '../components/Content';
 import Header from '../components/Header';
 import '../styles/styles.scss';
-import firebase from 'firebase';
-import {DB_CONFIG} from '../config/Config.js';
+import firebase from '../config/Config.js';
 
 class Waiter extends React.Component {
-  constructor(){
-    super();
-    this.firebase = firebase.initializeApp(DB_CONFIG);
-  }
   state = {
     order: [],
     total: 0,
@@ -41,10 +36,6 @@ class Waiter extends React.Component {
     }
   }
 
-  componentWillUnmount(){
-    console.log('componentWillunmount');
-  }
-
   handleAddOrderItem = (id, price) => {
     this.setState((prevState) => ({
       order: prevState.order.concat([{item: id, price: price}]),
@@ -70,12 +61,9 @@ class Waiter extends React.Component {
   }
 
   handleSendOrder = () => {
-    let database = firebase.database();
     let order = this.state.order;
     let total = this.state.total;
     let customer = document.getElementById('input').value;
-    console.log(order);
-    console.log(customer);
     writeUserData(customer, order, total);
     this.handleCleanOrder();
 
